@@ -75,11 +75,11 @@ GenMorw <- function(cancer, omics_list, PPIs,
     print("There is no mirna data!")
   }
 
-  dir_temp <- paste0("Models/Data")
+  dir_temp <- "Models/Data"
   if (!dir.exists(dir_temp)) {
     dir.create(dir_temp)
   }
-  dir_temp2 <- paste0("Results/Data")
+  dir_temp2 <- "Results/Data"
   if (!dir.exists(dir_temp)) {
     dir.create(dir_temp2)
   }

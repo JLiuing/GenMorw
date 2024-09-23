@@ -79,7 +79,7 @@ GenMorw <- function(cancer, omics_list, PPIs,
   if (!dir.exists(dir_temp)) {
     dir.create(dir_temp)
   }
-  dir_temp2 <- paste0("results/data")
+  dir_temp2 <- paste0("Results/Data")
   if (!dir.exists(dir_temp)) {
     dir.create(dir_temp2)
   }

@@ -32,7 +32,6 @@ Predictions <- function(cancer, PPI) {
     path_omic_inf <- paste0(mpath, "/", omic, "/influence_score.rds")
     path_omic_sen <- paste0(mpath, "/", omic, "/sensibility_score.rds")
 
-    # 取消分组
     temp_inf <- readRDS(path_omic_inf)
     tt_inf <- list()
     for (group in temp_inf)
@@ -51,12 +50,10 @@ Predictions <- function(cancer, PPI) {
   }
   rm(omic, path_omic_inf, path_omic_sen, temp_inf, temp_sen, tt_inf, tt_sen, group)
 
-  # 处理排序信息
   tpred_inf <- list()
   tpred_sen <- list()
   for (omic in omics)
   {
-    # inf
     tomic_inf <- pred_inf[[omic]]
     store_inf <- list()
     patientIDs <- names(tomic_inf)
@@ -67,7 +64,6 @@ Predictions <- function(cancer, PPI) {
     }
     tpred_inf[[omic]] <- store_inf
 
-    # sen
     tomic_sen <- pred_sen[[omic]]
     store_sen <- list()
     patientIDs <- names(tomic_sen)
@@ -90,7 +86,6 @@ Predictions <- function(cancer, PPI) {
     omic_list <- list()
     omic_inf <- pred_inf[[omic]]
     omic_sen <- pred_sen[[omic]]
-    # ID一致，取inf的ID
     patientIDs <- names(omic_inf)
     for (patient in patientIDs)
     {
@@ -104,7 +99,6 @@ Predictions <- function(cancer, PPI) {
   rm(omic_inf, omic_list, omic_sen, a, b, genes_patient, omic, patient, patientIDs)
   saveRDS(inf_sen_integrated, paste0(savepath, "/inf_sen_integrated.rds"))
 
-  # 将信息汇总到病人上
   patients_omics <- list()
   patientIDs <- names(inf_sen_integrated$mut)
   for (patient in patientIDs)

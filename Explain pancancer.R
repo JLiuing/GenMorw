@@ -1,4 +1,4 @@
-# Retrieval of contribution percentages of various cancer cohorts to pancancer prioritized genes
+## Retrieval of contribution percentages of various cancer cohorts to pancancer prioritized genes
 # After completing the identification of driver genes across multiple cancer cohorts, GenMorw can 
 # integrate these cohorts into a pan-cancer prioritization. The program can analyze the contribution
 # composition of each gene in the prioritization, with the contributions derived collectively from

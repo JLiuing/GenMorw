@@ -2,10 +2,11 @@
 # To construct the GenMorw-network, it is necessary to set the "retain_mmPPI" parameter to "True" in main.R 
 # program to ensure that GenMorw retains gene interaction information within the heterogeneous network. 
 # Below is the parameter statement for the program:
-# Cancer_name: TCGA Abbreviation of the cancer for which the GenMorw-network is to be constructed
-# min_num_of_component: Minimum number of genes contained in the smallest strongly connected component
-# min_size_clique: Minimum number of genes contained in the smallest clique.
-# thre: A confidence threshold (from 0 to 1), where 0.5 means that interactions must be supported by at least 50% of the heterogeneous networks.
+# Cancer_name: TCGA Abbreviation of the cancer for which the GenMorw-network is to be constructed.
+# min_num_of_component: Minimum number of genes contained in the smallest strongly connected component. Default: 5.
+# min_size_clique: Minimum number of genes contained in the smallest clique. Default: 3.
+# thre: A confidence threshold (from 0 to 1), where 0.5 means that interactions must be supported by 
+# at least 50% of the heterogeneous networks. Default: 0.5.
 
 
 Cancer_name <- "LAML"

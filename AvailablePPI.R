@@ -1,5 +1,3 @@
-# 获取可用的PPI参数
-
 AvailablePPI <- function()
 {
   ppis <- list.files("Data/networks_rds", pattern = "\\.rds$")

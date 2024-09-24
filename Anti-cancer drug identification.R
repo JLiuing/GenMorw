@@ -1,3 +1,19 @@
+# Estimation of potential anti-cancer drugs and database validation
+#   Please execute this program after completing the prediction of driver genes for the cancer cohort. 
+# The program is responsible for predicting the associations between the predicted driver genes and 
+# drugs, and it validates these gene-drug pairs by searching across all databases on Entrez.
+#   If you wish to validate the predicted genes for [cancer], ensure that the prioritization of 
+# driver genes for the [cancer] cohort is completed, specifically confirming the existence of the file 
+# "Results/Data/[cancer]/final_symbol_sort_patientFirst.txt". The associations and significance of 
+# gene-drug pairs will be estimated and ultimately visualized at the end of the process.
+# The following is the statement of the parameters:
+#   Cancer_name: The TCGA abbreviation of the cancer to be analyzed
+#   top_num: Number of top-ranked genes selected for gene-drug pair analysis
+#   GDSC2: Drug sensitivity dataset (https://zenodo.org/records/5787145)
+#   CCLE: Drug sensitivity dataset (https://zenodo.org/records/3905462)
+#   cores: Number of cores used for multi-threading during searches on Entrez
+#   retmax: Maximum number of search results returned from each database.
+
 Cancer_name <- "LAML"
 top_num <- 10
 GDSC2 <- readRDS("path to GDSC2 dataset")
@@ -198,7 +214,7 @@ p_GDSC2 <- ggplot(data = GDSC2_plot_df, aes(x = Estimate, y = FDR)) +
   theme_classic() +
   labs(
     x = "Estimate",
-    y = "-log10(FDR)"
+    y = "-Log10(FDR)"
   )
 ggsave(paste0("Results/Data/", Cancer_name, "/Gene_drug_within_GDSC2.pdf"), p_GDSC2, width = 6, height = 6)
 
@@ -213,6 +229,6 @@ p_CCLE <- ggplot(data = CCLE_plot_df, aes(x = Estimate, y = FDR)) +
   theme_classic() +
   labs(
     x = "Estimate",
-    y = "-log10(FDR)"
+    y = "-Log10(FDR)"
   )
 ggsave(paste0("Results/Data/", Cancer_name, "/Gene_drug_within_CCLE.pdf"), p_CCLE, width = 6, height = 6)

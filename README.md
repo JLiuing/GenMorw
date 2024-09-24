@@ -1,5 +1,6 @@
 # GenMorw
 GenMorw is a computational tool designed for identifying **cancer driver genes** by prioritizing genes within **single patient**, **cancer cohort** and **pancancer** levels. It utilizes essential Single Nucleotide Variants (SNV) data, along with optional Copy Number Variants (CNV), DNA methylation data, gene expression, and miRNA expression data to construct extensive gene-patient heterogeneity networks. These networks are then analyzed using a Random Walk with Restart model to predict relationships between genes and patients in the network. The integration of diverse data types ensures a comprehensive approach to driver gene identification, leveraging the complex interactions within the cellular environment.
+
 ![flowchart.png](https://github.com/JLiuing/GenMorw/blob/master/flowchart.png)
 
 ###  GenMorw overview

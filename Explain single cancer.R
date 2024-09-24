@@ -1,3 +1,8 @@
+## Retrieval of contribution percentages from various PPIs to cancer cohort prioritization genes
+# After completing the prioritization of a cancer cohort, the program can assist users in analyzing 
+# the contribution percentage of different PPI networks to the gene prioritization. By specifying 
+# the "cancer" parameter as the TCGA abbreviation for the cancer, this analysis can be performed.
+
 cancer <- "LAML"
 
 library(tidyverse)

@@ -1,8 +1,9 @@
 Cancer_name <- "LAML"
 top_num <- 10
-GDSC2 <- readRDS("D:/Rspace/GenMorw_single_now/analysis/Supplementary analyse anti-cancer drug/data/GDSC_2020(v2-8.2).rds")
-CCLE <- readRDS("D:/Rspace/GenMorw_single_now/analysis/Supplementary analyse anti-cancer drug/data/CCLE_2015.rds")
+GDSC2 <- readRDS("path to GDSC2 dataset")
+CCLE <- readRDS("path to CCLE dataset")
 cores <- 4
+retmax <- 20
 
 library(rentrez)
 library(openxlsx)
@@ -19,8 +20,6 @@ CCLE_drug_record <- data.frame()
 for (gene in predicted_genes)
 {
   print(paste0(gene, " Analyzing."))
-
-  # GDSC2
   feature_GDSC2 <- fNames(GDSC2, "rna")[which(featureInfo(GDSC2, "rna")$Symbol == gene)]
   if (length(feature_GDSC2) != 0) {
     sig.rna_GDSC2 <- drugSensitivitySig(
@@ -40,8 +39,6 @@ for (gene in predicted_genes)
       GDSC2_drug_record <- rbind(GDSC2_drug_record, call_data)
     }
   }
-
-  # CCLE
   feature_CCLE <- fNames(CCLE, "rna")[which(featureInfo(CCLE, "rna")$Symbol == gene)]
   if (length(feature_CCLE) != 0) {
     sig.rna_CCLE <- drugSensitivitySig(
@@ -70,7 +67,6 @@ CCLE_drug_record <- CCLE_drug_record[order(CCLE_drug_record$fdr), ]
 CCLE_drug_record <- cbind(data.frame(Combination = rownames(CCLE_drug_record)), CCLE_drug_record)
 
 all_dbs <- entrez_dbs()
-
 suppressPackageStartupMessages(library(foreach))
 suppressPackageStartupMessages(library(doParallel))
 
@@ -93,7 +89,7 @@ foreach(i = 1:length(combination_GDSC2)) %dopar% {
       cat("Searching in:", db, "\n")
       result <- tryCatch(
         {
-          entrez_search(db = db, term = search_term, retmax = 20)
+          entrez_search(db = db, term = search_term, retmax = retmax)
         },
         error = function(e) {
           cat("Error in database:", db, "\n")
@@ -130,7 +126,7 @@ foreach(i = 1:length(combination_CCLE)) %dopar% {
       cat("Searching in:", db, "\n")
       result <- tryCatch(
         {
-          entrez_search(db = db, term = search_term, retmax = 20) # 每个数据库最多返回20条结果作为示例
+          entrez_search(db = db, term = search_term, retmax = 20) 
         },
         error = function(e) {
           cat("Error in database:", db, "\n")

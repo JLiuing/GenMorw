@@ -46,7 +46,7 @@ GenMorw is capable of predicting driver genes for 33 GDC TCGA or more cancer typ
 
 Additionally, GenMorw comes with 12 predefined Protein-Protein Interaction (PPI) networks used for constructing heterogeneous networks, which are stored in the `Data/network_rds` directory. Users can also add their own networks to this folder. The `main.R` program utilizes all the contents in the `Data/network_rds` directory to construct heterogeneous networks, or allows for manual definition of these networks. The format for these network files is as follows:
 
-		    TP53	PIK3CA	TTN	...
+		    TP53	PIK3CA		TTN	...
 	TP53	0		1		1
 	PIK3CA	1		0		0
 	TTN	1		0		0

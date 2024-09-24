@@ -18,7 +18,7 @@
 #   "IntAct", "IREF", "irefindex", "Mentha", "MULTINET", and "STRINGdb". For example, set "PPIs <- c("CPDB", "PCNET")". By default, all PPIs are used.
 # retain_mmPPI: Logical value. True indicates that gene interaction information in the heterogeneous network will be retained, while False means 
 #   it will not be retained. To construct the GenMorw-network, this must be set to True. Additionally, allocate 40-80 GB of disk space for each cancer.
-# is_visualize: Logical value. True enables visualization of grouped plots for different data types, while False ignores visualization.
+# is_visualize: Logical value. True enables visualization of patient grouped plots for different data types, while False ignores visualization.
 
 cores <- 4
 beta <- 0.1

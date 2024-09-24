@@ -1,5 +1,3 @@
-# 计算单个病人不同组学下的调和平均值
-
 Harmonic_Mean <- function(data) {
   n_omic <- length(data)
   if (n_omic != 1) {
@@ -8,7 +6,6 @@ Harmonic_Mean <- function(data) {
     sum_ <- rep(0, gene_num)
     for (t in 1:n_omic)
     {
-      # 顺序一致
       sum_ <- sum_ + (data[[t]][gene_symbol])^-1
     }
     return(n_omic / sum_)

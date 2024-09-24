@@ -49,7 +49,7 @@ Additionally, GenMorw comes with 12 predefined Protein-Protein Interaction (PPI)
 		    TP53	PIK3CA	TTN	...
 	TP53	0		1		1
 	PIK3CA	1		0		0
-	TTN		1		0		0
+	TTN	1		0		0
 	...			
 After the program completes execution, all results are stored in the `Results/Data/[cancer]` directory. For example, the prioritization of driver genes for BRCA is stored in `Results/Data/BRCA/final_symbol_sort_patientFirst.txt`, and the prioritization of driver genes for individual cancer patients within BRCA is stored in `Results/Data/BRCA/single_patients_pred.rds`.
  ### 2. Prioritization of predicted pancancer driver gene

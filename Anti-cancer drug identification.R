@@ -8,14 +8,14 @@
 # gene-drug pairs will be estimated and ultimately visualized at the end of the process.
 # The following is the statement of the parameters:
 #   Cancer_name: The TCGA abbreviation of the cancer to be analyzed
-#   top_num: Number of top-ranked genes selected for gene-drug pair analysis
-#   GDSC2: Drug sensitivity dataset (https://zenodo.org/records/5787145)
-#   CCLE: Drug sensitivity dataset (https://zenodo.org/records/3905462)
-#   cores: Number of cores used for multi-threading during searches on Entrez
-#   retmax: Maximum number of search results returned from each database.
+#   top_num: Number of top-ranked genes selected for gene-drug pair analysis. Default: 20.
+#   GDSC2: Drug sensitivity dataset (https://zenodo.org/records/5787145). 
+#   CCLE: Drug sensitivity dataset (https://zenodo.org/records/3905462).
+#   cores: Number of cores used for multi-threading during searches on Entrez. Default: 4.
+#   retmax: Maximum number of search results returned from each database. Default: 20.
 
 Cancer_name <- "LAML"
-top_num <- 10
+top_num <- 20
 GDSC2 <- readRDS("path to GDSC2 dataset")
 CCLE <- readRDS("path to CCLE dataset")
 cores <- 4
@@ -142,7 +142,7 @@ foreach(i = 1:length(combination_CCLE)) %dopar% {
       cat("Searching in:", db, "\n")
       result <- tryCatch(
         {
-          entrez_search(db = db, term = search_term, retmax = 20) 
+          entrez_search(db = db, term = search_term, retmax = retmax) 
         },
         error = function(e) {
           cat("Error in database:", db, "\n")

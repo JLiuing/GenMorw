@@ -28,7 +28,7 @@ The packages mentioned above are essential for the process of predicting driver 
  - PharmacoGx ( = 3.2.0)
  - igraph ( = 2.0.3)
  ### 1. Prioritization of predicted individual patient and cancer cohort driver gene
-Once the environment is properly configured, users need to input various cancer data types to complete the prediction of driver genes. GenMorw accepts inputs in the format used by [XenaBrowser](https://xenabrowser.net/datapages/) for GDC TCGA data. Specifically, it requires gene-level Copy Number Variants (CNV), DNA methylation data, MuTect2 Variant Aggregation for somatic mutations, gene expression data (FPKM), and miRNA expression data. Data should be organized in the directory structure `Cancer Data/GDC_[cancer]/...` and stored within the `Cancer Data` folder for processing. The storage directory for breast invasive carcinoma (BRCA) is as follows:
+Once the environment is properly configured, users need to input various cancer data types to complete the prediction of driver genes. GenMorw accepts inputs in the format used by [XenaBrowser](https://xenabrowser.net/datapages/) for GDC TCGA data or our compiled [input](https://doi.org/10.57760/sciencedb.09354) . Specifically, it requires gene-level Copy Number Variants (CNV), DNA methylation data, MuTect2 Variant Aggregation for somatic mutations, gene expression data (FPKM), and miRNA expression data. Data should be organized in the directory structure `Cancer Data/GDC_[cancer]/...` and stored within the `Cancer Data` folder for processing. The storage directory for breast invasive carcinoma (BRCA) is as follows:
 
     -Cancer Data
 	    -GDC_BRCA

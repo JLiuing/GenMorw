@@ -30,7 +30,7 @@ PPIs <- AvailablePPI()
 retain_mmPPI <- F
 is_visualize <- T
 
-cancers <- list.files("Cancer Data")
+cancers <- list.dirs("Cancer Data", full.names = F, recursive = F)
 cancers <- unlist(lapply(strsplit(cancers, split = "GDC_"), function(x) {
   x[[2]]
 }))

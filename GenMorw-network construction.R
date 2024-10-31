@@ -57,11 +57,8 @@ my_graph_directed <- graph_from_adjacency_matrix(t(global_matrix), mode = "direc
 global_matrix2 <- (global_matrix + t(global_matrix)) / 2
 my_graph_undirected <- graph_from_adjacency_matrix(global_matrix2, mode = "undirected", weighted = TRUE, diag = FALSE)
 
-# 寻找强连通分量
 components_strong <- components(my_graph_directed, mode = "strong")
-# 找到节点数大于10的所有连通分量
 large_components <- which(components_strong$csize > min_num_of_component)
-# 在无向图中找到团结构
 my_cliques <- max_cliques(my_graph_undirected, min = min_size_clique)
 
 components_record <- list()
